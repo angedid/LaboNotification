@@ -1,0 +1,108 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           LaboNotification
+version:        0.0.0.2
+description:    Please see the README on GitHub at <https://github.com/githubuser/LaboNotification#readme>
+homepage:       https://github.com/githubuser/LaboNotification#readme
+bug-reports:    https://github.com/githubuser/LaboNotification/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2023 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/LaboNotification
+
+library
+  exposed-modules:
+      App.Lib
+      Domain.Domain
+      Infra.GmailSMTPConnect
+  other-modules:
+      Paths_LaboNotification
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      aeson
+    , amqp
+    , base >=4.7 && <5
+    , bytestring
+    , faktory
+    , http-client
+    , hworker
+    , mime-mail
+    , network
+    , servant-multipart
+    , servant-server
+    , smtp-mail
+    , text
+    , wai
+    , warp
+  default-language: Haskell2010
+
+executable LaboNotification-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_LaboNotification
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      LaboNotification
+    , aeson
+    , amqp
+    , base
+    , bytestring
+    , faktory
+    , http-client
+    , hworker
+    , mime-mail
+    , network
+    , servant-multipart
+    , servant-server
+    , smtp-mail
+    , text
+    , wai
+    , warp
+  default-language: Haskell2010
+
+test-suite LaboNotification-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_LaboNotification
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      LaboNotification
+    , aeson
+    , amqp
+    , base
+    , bytestring
+    , faktory
+    , hspec
+    , hspec-wai
+    , hspec-wai-json
+    , http-client
+    , hworker
+    , mime-mail
+    , network
+    , servant-multipart
+    , servant-server
+    , smtp-mail
+    , text
+    , wai
+    , warp
+  default-language: Haskell2010
